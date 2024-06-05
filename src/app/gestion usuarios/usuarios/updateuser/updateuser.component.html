@@ -1,0 +1,33 @@
+<div class="background-container">
+        <img src="assets/images/docentes_cursos.png" class="background-image" alt="Fondo">
+        <div class="container">
+          <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+          <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+                Actualizar Usuario
+              </div>
+          <form (ngSubmit)="updateUser()">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="userData.name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" [(ngModel)]="userData.email">
+            </div>
+
+
+            <div class="form-group">
+                <label>Rol:</label>
+                <select name="role" [(ngModel)]="userData.role" required>
+                  <option value="">Seleccionar rol</option>
+                  <option value="ADMIN">ADMIN</option>
+                  <option value="USER">USER</option>
+                </select>
+              </div>
+
+
+            <button type="submit">Update</button>
+          </form>
+        </div>
+      </div>
+      

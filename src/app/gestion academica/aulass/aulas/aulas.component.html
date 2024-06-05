@@ -1,0 +1,53 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Aulas</strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button routerLink="/register-aula" class="reg-button">Añadir Aula</button>
+        
+        <div class="table-container ">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Capacidad</th>
+                        <th>Número</th>
+                        <th>Piso</th>
+                        <th>Descripción</th>
+                        <th>Modulo_ID</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let aula of aulas" key="aula.id">
+                        <td>{{ aula.id }}</td>
+                        <td>{{ aula.capacidad }}</td>
+                        <td>{{ aula.numero }}</td>
+                        <td>{{ aula.piso }}</td>
+                        <td>{{ aula.descripcion }}</td>
+                        <td>{{ aula.modulo_id }}</td>
+        
+                        <td>
+                            <button class="update-button" (click)="navigateToUpdate(aula.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-button" (click)="deleteAula(aula.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>

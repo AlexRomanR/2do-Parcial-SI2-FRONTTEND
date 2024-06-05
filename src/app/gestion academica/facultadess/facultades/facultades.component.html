@@ -1,0 +1,47 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Facultades</strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button routerLink="/register-facu" class="reg-button">Añadir Facultad</button>
+        
+        <div class="table-container ">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+           
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let facultad of facultades" key="facultad.id">
+                        <td>{{ facultad.id }}</td>
+                        <td>{{ facultad.nombre }}</td>
+                        <td>{{ facultad.descripcion }}</td>
+                        <td>
+                            <button class="update-button" (click)="navigateToUpdate(facultad.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-button" (click)="deleteFacultad(facultad.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>

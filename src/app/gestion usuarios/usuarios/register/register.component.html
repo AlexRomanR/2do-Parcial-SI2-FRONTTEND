@@ -1,0 +1,32 @@
+<div class="background-container">
+  <img src="assets/images/docentes_cursos.png" class="background-image" alt="Fondo">
+  <div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+      Registrar Usuario
+    </div>
+    <form (submit)="handleSubmit()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="name" [(ngModel)]="formData.name" required />
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" name="email" [(ngModel)]="formData.email" required />
+      </div>
+      <div class="form-group">
+        <label>Contraseña:</label>
+        <input type="password" name="password" [(ngModel)]="formData.password" required />
+      </div>
+      <div class="form-group">
+        <label>Rol:</label>
+        <select name="role" [(ngModel)]="formData.role" required>
+          <option value="">Seleccionar rol</option>
+          <option value="ADMIN">ADMIN</option>
+          <option value="USER">USER</option>
+        </select>
+      </div>
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+</div>

@@ -1,9 +1,113 @@
-<nav>
-    <ul>
-        <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Inicio</a></li>
-        <li *ngIf = "isAuthenticated"><a routerLink = "/profile">Perfil</a></li>
-        <li *ngIf = "isAdmin"><a routerLink = "/users">Gestionar Usuarios</a></li>
-        <li *ngIf = "!isAuthenticated"><a routerLink = "/login">Login</a></li>
-        <li *ngIf = "isAuthenticated"><a routerLink = "" (click)="logout()">Cerrar sesión</a></li>
-    </ul>
+<!--
+Change class "fixed" to "sticky" in "navbar" (l. 33) so the navbar doesn't hide any of your page content!
+-->
+
+
+<!-- Navbar start -->
+<nav id="navbar" class="fixed top-0 z-40 flex w-full flex-row justify-end bg-black px-4 sm:justify-between">
+  
+    <button id="btnSidebarToggler" type="button" class="py-4 text-2xl text-white hover:text-gray-200">
+        <svg id="navClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="h-8 w-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="hidden h-8 w-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
 </nav>
+<!-- Navbar end -->
+
+<!-- Sidebar start-->
+<div id="containerSidebar" class="z-40">
+    <div class="navbar-menu relative z-40">
+        <nav id="sidebar"
+        class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-black pt-6 pb-8 sm:max-w-xs lg:w-80">
+    
+        <!-- Bienvenido a UNI-SYS -->
+        <div class="px-4 py-4 text-center">
+            <h2 style="font-size: 1.5rem; font-weight: bold; color: #FFFFFF; text-transform: uppercase; background-color: #0a0a0a; padding: 10px; border-radius: 8px;">
+                Bienvenido a <br>UNI-SYS
+            </h2>
+        </div>
+        <!-- Main -->
+        <div class="px-4 pb-6 border-b border-gray-600">
+            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Gestión de Usuarios</h3>
+
+            <ul class="mb-8 text-sm font-medium">
+                <li *ngIf="isAdmin">
+                    <a routerLink="/users" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Usuarios</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                        href="#link1">
+                        <span class="select-none">Gestionar Docentes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Legal -->
+        <div class="px-4 pb-6 border-b border-gray-600">
+            <br>
+            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Gestión Academica</h3>
+            <ul class="mb-8 text-sm font-medium">
+                <li *ngIf="isAdmin">
+                    <a routerLink="/facultades" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Facultades</span>
+                    </a>
+                </li>
+                <li *ngIf="isAdmin">
+                    <a routerLink="/modulos" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Modulos</span>
+                    </a>
+                </li>
+
+                <li *ngIf="isAdmin">
+                    <a routerLink="/aulas" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Aulas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                        href="#imprint">
+                        <span class="select-none">Imprint</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Others -->
+        <div class="px-4 pb-6">
+            <br>
+            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Others</h3>
+            <ul class="mb-8 text-sm font-medium">
+                <li>
+                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                        href="#ex1">
+                        <span class="select-none">Example 1</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                        href="#ex2">
+                        <span class="select-none">Example 2</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    </div>
+    <div class="mx-auto lg:ml-80"></div>
+</div>
+<!-- Sidebar end -->
+
+<main>
+    <!-- your content goes here -->
+</main>
+
