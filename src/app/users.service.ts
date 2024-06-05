@@ -49,6 +49,9 @@ export class UsersService {
     }
   }
 
+
+
+
   async getYourProfile(token:string):Promise<any>{
     const url = `${this.BASE_URL}/adminuser/get-profile`;
     const headers = new HttpHeaders({
@@ -135,6 +138,214 @@ export class UsersService {
     return false;
 
   }
+
+
+  //FACULTADES
+  async getAllFacultades(token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/get-all-facultades`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async getFacuById(facuID: string, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/get-facultad/${facuID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async registerFacultad(facuData:any, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/create-facultad`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.post<any>(url, facuData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+
+  async deleteFacultad(facuID: string, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/delete-facultad/${facuID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.delete<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async updateFacultad(facuID: string, facuData: any, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/update-facultad/${facuID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.put<any>(url, facuData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+
+  //MODULOS
+
+  async getAllModulos(token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/get-all-modulos`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async getModuById(moduID: string, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/get-modulo/${moduID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async registerModulo(moduData:any, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/create-modulo`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.post<any>(url, moduData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async deleteModulo(moduID: string, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/delete-modulo/${moduID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.delete<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+  async updateModulo(moduID: string, moduData: any, token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/update-modulo/${moduID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.put<any>(url, moduData, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
+
+
+
+
+
+    //AULAS
+
+    async getAllAulas(token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-all-aulas`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async getAulaById(aulaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-aula/${aulaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async registerAula(aulaData:any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/create-aula`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.post<any>(url, aulaData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async deleteAula(aulaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/delete-aula/${aulaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.delete<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async updateAula(aulaID: string, moduData: any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/update-aula/${aulaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.put<any>(url, moduData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
 
 
 }

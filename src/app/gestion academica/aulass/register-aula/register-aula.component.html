@@ -1,0 +1,46 @@
+<div class="background-container">
+    <img src="assets/images/aulas.png" class="background-image" alt="Fondo">
+    <div class="container">
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+        Añadir Aula
+      </div>
+      <form (submit)="handleSubmit()">
+        <div class="form-group">
+          <label>Capacidad:</label>
+          <input type="number" name="capacidad" [(ngModel)]="formData.capacidad" required />
+        </div>
+
+        <div class="form-group">
+            <label>Número:</label>
+            <input type="number" name="numero" [(ngModel)]="formData.numero" required />
+        </div>
+        
+
+        <div class="form-group">
+            <label>Piso:</label>
+            <input type="text" name="piso" [(ngModel)]="formData.piso" required />
+        </div>
+
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" name="descripcion" [(ngModel)]="formData.descripcion" required />
+        </div>
+
+
+        <div class="form-group">
+            <label>Modulo:</label>
+            <select name="modulo_id" [(ngModel)]="formData.modulo_id" required>
+                <option value="" disabled selected>Seleccione una modulo</option>
+                <option *ngFor="let modulo of modulos" [value]="modulo.id">{{ modulo.numero }}</option>
+            </select>
+        </div>
+
+
+
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+  
