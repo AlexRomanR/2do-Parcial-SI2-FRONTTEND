@@ -1,7 +1,7 @@
 <div class="container">
-    <h2>Gestionar Usuarios</h2>
+    <h2>Gestionar Docentes </h2>
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <button routerLink="/register" class="reg-button">Añadir usuario</button>
+    <button routerLink="/register" class="reg-button">Añadir docente</button>
     <table>
         <thead>
             <tr>
@@ -17,7 +17,7 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.role}}</td>
+                <td>{{ user.role }}</td>
                 <td>
                     <button class="update-button" (click)="navigateToUpdate(user.id)">Actualizar</button>
                     <button class="delete-button" (click)="deleteUser(user.id)">Eliminar</button>

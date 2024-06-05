@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/login",
+    "/materia",
+    "/profile",
+    "/register",
+    "/users",
+    "/users-by-role"
+  ]
+}
