@@ -3,11 +3,12 @@ import { UsersService } from '../../../users.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MapComponent } from '../map/map.component'; 
 
 @Component({
   selector: 'app-register-modu',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MapComponent],
   templateUrl: './register-modu.component.html',
   styleUrl: './register-modu.component.css'
 })
@@ -16,6 +17,7 @@ export class RegisterModuComponent {
   formData: any = {
     numero: '',
     descripcion: '',
+    ubicacion: '',
     facultad_id: ''
   };
   errorMessage: string = '';
@@ -42,9 +44,13 @@ export class RegisterModuComponent {
     }
   }
 
+  updateLocation(location: string) {
+    this.formData.ubicacion = location;
+  }
+
   async handleSubmit() {
 
-    if (!this.formData.numero || !this.formData.descripcion || !this.formData.facultad_id) {
+    if (!this.formData.numero || !this.formData.descripcion || !this.formData.facultad_id || !this.formData.ubicacion) {
       this.showError('Por favor, rellene todos los campos solicitados.');
       return;
     }
@@ -78,4 +84,11 @@ export class RegisterModuComponent {
       this.errorMessage = ''; // Clear the error message after the specified duration
     }, 3000);
   }
+
+
+
+
+
 }
+
+

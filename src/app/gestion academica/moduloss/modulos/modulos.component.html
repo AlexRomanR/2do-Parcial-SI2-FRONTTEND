@@ -21,6 +21,7 @@
                         <th>ID</th>
                         <th>Número</th>
                         <th>Descripción</th>
+                        <th>Ubicación</th>
                         <th>ID_Facultad</th>
                         <th>Acciones</th>
                     </tr>
@@ -30,6 +31,7 @@
                         <td>{{ modulo.id }}</td>
                         <td>{{ modulo.numero }}</td>
                         <td>{{ modulo.descripcion }}</td>
+                        <td>{{ modulo.ubicacion }}</td>
                         <td>{{ modulo.facultad_id }}</td>
                         <td>
                             <button class="update-button" (click)="navigateToUpdate(modulo.id)">

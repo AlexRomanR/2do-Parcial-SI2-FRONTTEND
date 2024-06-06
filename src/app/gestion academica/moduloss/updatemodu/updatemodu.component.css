@@ -31,6 +31,8 @@ body, html {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 70vh; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Aplica desplazamiento solo si el contenido excede la altura máxima */
   }
   
   .container h2 {
