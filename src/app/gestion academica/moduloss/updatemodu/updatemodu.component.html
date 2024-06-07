@@ -1,28 +1,35 @@
 <div class="background-container">
-    <img src="assets/images/modulos.png" class="background-image" alt="Fondo">
-    <div class="container">
-      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-      <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
-        Actualizar Modulo
-      </div>
-      <form (ngSubmit)="updateModu()">
-        <div class="form-group">
-          <label for="numero">Número:</label>
-          <input type="number" id="numero" name="numero" [(ngModel)]="moduData.numero" required>
-        </div>
-        <div class="form-group">
-          <label for="descripcion">Descripción:</label>
-          <input type="text" id="descripcion" name="descripcion" [(ngModel)]="moduData.descripcion" required>
-        </div>
-        <div class="form-group">
-          <label for="facultad">Facultad:</label>
-          <select id="facultad" name="facultad_id" [(ngModel)]="moduData.facultad_id" required>
-            <option value="" disabled>Seleccione una facultad</option>
-            <option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</option>
-          </select>
-        </div>
-        <button type="submit">Actualizar</button>
-      </form>
+  <img src="assets/images/modulos.png" class="background-image" alt="Fondo">
+  <div class="container">
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+      Actualizar Modulo
     </div>
+    <form (ngSubmit)="updateModu()">
+      <div class="form-group">
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" name="numero" [(ngModel)]="moduData.numero" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" [(ngModel)]="moduData.descripcion" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="moduData.ubicacion" readonly required>
+      </div>
+
+      <app-map [initialLocation]="moduData.ubicacion" (locationSelected)="updateLocation($event)"></app-map>
+
+      <div class="form-group">
+        <label for="facultad">Facultad:</label>
+        <select id="facultad" name="facultad_id" [(ngModel)]="moduData.facultad_id" required>
+          <option value="" disabled>Seleccione una facultad</option>
+          <option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</option>
+        </select>
+      </div>
+      <button type="submit">Actualizar</button>
+    </form>
   </div>
-  
+</div>
