@@ -139,7 +139,137 @@ export class UsersService {
 
   }
 
+  //MATERIAS
+  async getAllMaterias(token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/get-all-materias`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 
+  async createMateria(materiaData: any, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/create-materia`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.post<any>(url, materiaData, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateMateria(materiaID: string, materiaData: any, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/update-materia/${materiaID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.put<any>(url, materiaData, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteMateria(materiaID: string, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/delete-materia/${materiaID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.delete<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getMateriaById(materiaID: string, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/get-materia/${materiaID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+  //CARRERAS
+  async getAllCarreras(token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/get-all-carreras`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async createCarrera(carreraData: any, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/create-carrera`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.post<any>(url, carreraData, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async updateCarrera(carreraID: string, carreraData: any, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/update-carrera/${carreraID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.put<any>(url, carreraData, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async deleteCarrera(carreraID: string, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/delete-carrera/${carreraID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.delete<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getCarreraById(carreraID: string, token: string): Promise<any> {
+    const url = `${this.BASE_URL}/admin/get-carrera/${carreraID}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    try {
+      const response = await this.http.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
   //FACULTADES
   async getAllFacultades(token:string):Promise<any>{
     const url = `${this.BASE_URL}/admin/get-all-facultades`;

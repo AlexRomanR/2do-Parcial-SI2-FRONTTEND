@@ -15,6 +15,13 @@ import { UpdatemoduComponent } from './gestion academica/moduloss/updatemodu/upd
 import { AulasComponent } from './gestion academica/aulass/aulas/aulas.component';
 import { UpdateaulaComponent } from './gestion academica/aulass/updateaula/updateaula.component';
 import { RegisterAulaComponent } from './gestion academica/aulass/register-aula/register-aula.component';
+import { UsersListByRoleComponent } from './gestion usuarios/usuarios/users-list-by-role/users-list-by-role.component';
+import { MateriasComponent } from './gestion academica/materias/materias/materias.component';
+import { UpdateMateriasComponent } from './gestion academica/materias/updatematerias/updatematerias.component';
+import { RegistermateriasComponent } from './gestion academica/materias/registermaterias/registermaterias.component';
+import { CarrerasComponent } from './gestion academica/carreras/carreras/carreras.component';
+import { UpdatecarrerasComponent } from './gestion academica/carreras/updatecarreras/updatecarreras.component';
+import { RegistercarrerasComponent } from './gestion academica/carreras/registercarreras/registercarreras.component';
 
 
 
@@ -24,6 +31,17 @@ export const routes: Routes = [
     {path: 'profile', component: ProfileComponent, canActivate: [usersGuard]},
     {path: 'update/:id', component: UpdateuserComponent, canActivate: [adminGuard]},
     {path: 'users', component: UserslistComponent, canActivate:[adminGuard]},
+    {path: 'docentes', component: UsersListByRoleComponent, canActivate:[adminGuard]},
+
+    //materias
+    {path: 'materias', component: MateriasComponent, canActivate:[adminGuard]},
+    {path: 'update-materia/:id', component: UpdateMateriasComponent, canActivate: [adminGuard]},
+    {path: 'register-materia', component: RegistermateriasComponent, canActivate: [adminGuard]},
+
+    //carreras
+    {path: 'carreras', component: CarrerasComponent, canActivate:[adminGuard]},
+    {path: 'update-carreras/:id', component: UpdatecarrerasComponent, canActivate: [adminGuard]},
+    {path: 'register-carreras', component: RegistercarrerasComponent, canActivate: [adminGuard]},
 
     //facultad
     {path: 'facultades', component: FacultadesComponent, canActivate:[adminGuard]},
