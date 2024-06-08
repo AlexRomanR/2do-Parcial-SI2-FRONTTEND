@@ -36,6 +36,14 @@ Change class "fixed" to "sticky" in "navbar" (l. 33) so the navbar doesn't hide 
             <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Gestión de Usuarios</h3>
 
             <ul class="mb-8 text-sm font-medium">
+
+                <li *ngIf="isAdmin">
+                    <a routerLink="/roles" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Roles y Permisos</span>
+                    </a>
+                </li>
+
+
                 <li *ngIf="isAdmin">
                     <a routerLink="/users" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Usuarios</span>

@@ -16,8 +16,7 @@ export class FacultadesComponent {
   errorMessage: string = ''
   constructor(
     private readonly userService: UsersService,
-    private readonly router: Router
-  ) {}
+    private readonly router: Router) {}
 
   
   ngOnInit(): void {
