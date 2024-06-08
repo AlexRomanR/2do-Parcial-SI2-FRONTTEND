@@ -1,44 +1,101 @@
-.container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+
+    .mt-160 {
+        margin-top: 7rem; /* Ajusta el valor según sea necesario */
+      }
+      /* fondo negro */
+      /* 
+      body {
+        background-color: rgb(42, 39, 39);
+        color: white; 
+        margin: 0; 
+        padding: 0;
+        min-height: 100vh; 
+      }
+
+      
+      .full-page {
+        background-color: rgb(14, 14, 14);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10rem; 
+      } */
+      body {
+        background-image: url('../../assets/images/Universidad.jpg'); /* Ruta relativa a la imagen de fondo */
+        background-color: rgb(42, 39, 39);
+        color: white; 
+        margin: 0; 
+        padding: 0;
+        min-height: 100vh; 
+    }
+    
+    .full-page {
+        min-height: 100vh; /* Asegura que el contenedor ocupe al menos toda la altura de la ventana */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10rem; /* Añade espacio en la parte inferior */
+        background-color: rgba(14, 14, 14, 0.8); /* Fondo negro transparente para toda la página */
+        background-blend-mode: overlay; /* Mezcla el fondo con el color de fondo para dar un efecto oscuro */
+    }
+    
+    .container {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 20px;
+        font-size: 18px;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     
     .container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
     }
     
     .container p {
-    margin-bottom: 10px;
+        margin-bottom: 10px;
     }
     
     .container button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
     
     .container button:hover {
-    background-color: #0056b3;
+        background-color: #0056b3;
     }
     
     .error-message {
-    color: #dc3545;
-    font-size: 20px;
-    margin: 10px;
-    text-align: center;
+        color: #dc3545;
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .btn-orange {
+        background-color: orange;
+        color: white;
+        border: none;
+        border-radius: 20px; /* Este valor puede ser ajustado según lo deseado */
+        padding: 10px 20px; /* Ajusta el padding según sea necesario */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-orange:hover {
+        background-color: #ff8c00; /* Cambia el color al pasar el ratón por encima */
     }
     

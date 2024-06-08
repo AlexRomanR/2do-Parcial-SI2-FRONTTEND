@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
     <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
     <h2>Información personal</h2>
@@ -10,5 +10,56 @@
    
       </div>
       
-</div>
+</div> -->
+<style>
+  .mt-160 {
+  margin-top: 10rem; /* Ajusta el valor según sea necesario */
+}
+</style>
+<!-- component -->
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
 
+</head>
+<body>
+  <div class="full-page">
+    <h1 style="margin-top: 100px; text-align: center; font-size: 36px; color: rgb(123, 109, 90);">SISTEMA DE CONTROL DE ASISTENCIA DE LA UNIVERSIDAD UNIV-SYS</h1>
+    <div class="relative max-w-md mx-auto md:max-w-2xl mt-160 min-w-0 break-words bg-gray-500 w-full mb-6 shadow-lg rounded-xl">
+      <div class="px-6">
+        <div class="flex flex-wrap justify-center">
+          <div class="w-full flex justify-center">
+            <div class="relative">
+              <img src="https://github.com/creativetimofficial/soft-ui-dashboard-tailwind/blob/main/build/assets/img/team-2.jpg?raw=true" class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+            </div>
+          </div>
+          <div class="w-full text-center mt-20">
+            <div class="flex justify-center lg:pt-4 pt-8 pb-0">
+
+              <div class="p-3 text-center">
+                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">{{profileInfo?.ourUsers?.email}}</span>
+                <span class="text-sm text-slate-200">Correo</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <h3 class="text-2xl text-slate-800 font-bold leading-normal mb-1">Bienvenido {{profileInfo?.ourUsers?.name}}</h3>
+          <div class="text-xs mt-0 mb-2 text-slate-200 font-bold uppercase">
+                {{profileInfo?.ourUsers?.role}}
+          </div>
+        </div>
+        <div class="mt-6 py-6 border-t border-slate-200 text-center">
+          <div class="flex flex-wrap justify-center">
+            <div class="w-full px-4">
+              <p class="font-light leading-relaxed text-slate-200 mb-4">El sistema Univ-Sys es una plataforma integral diseñada para simplificar la gestión académica y administrativa en el entorno universitario. Su enfoque principal recae en la eficiente gestión del registro de asistencia de los docentes. Con funciones que abarcan desde la organización de espacios de clases hasta la generación de informes detallados, este sistema ofrece una solución completa para las necesidades de seguimiento de asistencia. Además, a través de su aplicación móvil dedicada a los docentes, proporciona herramientas accesibles para visualizar horarios, consultar reportes de asistencia y gestionar solicitudes de licencia, potenciando así la conectividad y la practicidad en la vida académica.</p>
+              <div *ngIf="profileInfo?.ourUsers?.role === 'ADMIN'">
+                <button type="button" class="btn-orange" (click)="updateProfile(profileInfo?.ourUsers?.id)">Update Profile</button>
+            </div>    
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

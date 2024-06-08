@@ -1,0 +1,46 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Carreras </strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button routerLink="/register-carreras" class="reg-button">Añadir carrera</button>
+        
+        <div class="table-container ">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let carrera of carreras" key="materia.id">
+                        <td>{{ carrera.id }}</td>
+                        <td>{{ carrera.codigo }}</td>
+                        <td>{{ carrera.nombre }}</td>
+                        <td>
+                            <button class="update-button" (click)="navigateToUpdate(carrera.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-button" (click)="deleteCarrera(carrera.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
