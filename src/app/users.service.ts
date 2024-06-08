@@ -478,4 +478,103 @@ export class UsersService {
     }
 
 
+
+
+    //ROLES
+
+    async getAllRoles(token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-all-roles`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async getRolById(rolID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-rol/${rolID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async registerRol(rolData:any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/create-rol`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.post<any>(url, rolData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async deleteRol(rolID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/delete-rol/${rolID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.delete<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async updateRol(rolID: string, rolData: any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/update-rol/${rolID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.put<any>(url, rolData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+    
+
+     //PERMISOS
+
+    async getAllPermisos(token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-all-permisos`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async getPermisoById(permisoID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/admin/get-permiso/${permisoID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+
+
 }

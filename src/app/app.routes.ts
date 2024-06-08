@@ -15,6 +15,11 @@ import { UpdatemoduComponent } from './gestion academica/moduloss/updatemodu/upd
 import { AulasComponent } from './gestion academica/aulass/aulas/aulas.component';
 import { UpdateaulaComponent } from './gestion academica/aulass/updateaula/updateaula.component';
 import { RegisterAulaComponent } from './gestion academica/aulass/register-aula/register-aula.component';
+
+import { RolesComponent } from './gestion usuarios/roles y permisos/roles/roles.component';
+import { UpdaterolesComponent } from './gestion usuarios/updateroles/updateroles.component';
+import { RegisterrolesComponent } from './gestion usuarios/roles y permisos/registerroles/registerroles.component';
+
 import { UsersListByRoleComponent } from './gestion usuarios/usuarios/users-list-by-role/users-list-by-role.component';
 import { MateriasComponent } from './gestion academica/materias/materias/materias.component';
 import { UpdateMateriasComponent } from './gestion academica/materias/updatematerias/updatematerias.component';
@@ -22,6 +27,7 @@ import { RegistermateriasComponent } from './gestion academica/materias/register
 import { CarrerasComponent } from './gestion academica/carreras/carreras/carreras.component';
 import { UpdatecarrerasComponent } from './gestion academica/carreras/updatecarreras/updatecarreras.component';
 import { RegistercarrerasComponent } from './gestion academica/carreras/registercarreras/registercarreras.component';
+
 
 
 
@@ -62,12 +68,20 @@ export const routes: Routes = [
     {path: 'register-aula', component: RegisterAulaComponent, canActivate: [adminGuard]},
 
 
+    //ROLES
+    {path: 'roles', component: RolesComponent, canActivate:[adminGuard]},
+    {path: 'update-rol/:id', component: UpdaterolesComponent, canActivate: [adminGuard]},
+    {path: 'register-rol', component: RegisterrolesComponent, canActivate: [adminGuard]},
+
+
 
 
     //homes
     {path: 'home', component: HomeComponent },
     {path: '**', component: HomeComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
+
+    
 ];
 
 

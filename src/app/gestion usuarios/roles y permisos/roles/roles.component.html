@@ -1,0 +1,46 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <h2><strong>Gestionar Roles y Permisos</strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button routerLink="/register-rol" class="reg-button">Añadir Rol</button>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Rol</th>
+                        <th>Permisos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let role of roles" key="role.id">
+                        <td>{{ role.id }}</td>
+                        <td>{{ role.nombre }}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let permiso of role.permissions">{{ permiso.nombre }}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <button class="update-button" (click)="navigateToUpdate(role.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-button" (click)="deleteRol(role.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
