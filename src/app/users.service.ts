@@ -49,6 +49,19 @@ export class UsersService {
     }
   }
 
+  async getAllUsersV2(token:string):Promise<any>{
+    const url = `${this.BASE_URL}/admin/get-all-usersV2`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+    try{
+      const response =  this.http.get<any>(url, {headers}).toPromise()
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
+
 
 
 
@@ -575,6 +588,77 @@ export class UsersService {
         throw error;
       }
     }
+
+
+
+
+    //AULAS
+
+    async getAllDocenteMaterias(token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-all-docenteMaterias`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async getDocenteMateriasById(docenteMateriaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-docenteMateria/${docenteMateriaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async registerDocenteMaterias(docenteMateriaData:any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/create-docenteMateria`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.post<any>(url, docenteMateriaData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async deleteDocenteMaterias(docenteMateriasID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/delete-docenteMateria/${docenteMateriasID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.delete<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async updateDocenteMaterias(docenteMateriasID: string, docenteMateriasData: any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/update-docenteMateria/${docenteMateriasID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.put<any>(url, docenteMateriasData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+
 
 
 }

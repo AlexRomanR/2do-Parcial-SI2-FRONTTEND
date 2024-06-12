@@ -1,0 +1,60 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="###TU-INTEGRIDAD###" crossorigin="anonymous" />
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Programación Academica</strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button routerLink="/register-progAcademica" class="reg-button">Añadir Programación Academica</button>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Docente</th>
+                        <th>Materia</th>
+                        <th>Horario Inicio</th>
+                        <th>Horario Fin</th>
+                        <th>Grupo</th>
+                        <th>Día</th>
+                        <th>Carrera</th>
+                        <th>Aula</th>
+                        <th>Modulo</th>
+                        <th>Facultad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let docenteMateria of docenteMaterias" key="docenteMateria.id">
+                        <td>{{ docenteMateria.id }}</td>
+                        <td>{{ docenteMateria.docente.name }}</td>
+                        <td>{{ docenteMateria.materia.nombre }}</td>
+                        <td>{{ docenteMateria.horario_inicio }}</td>
+                        <td>{{ docenteMateria.horario_fin }}</td>
+                        <td>{{ docenteMateria.grupo }}</td>
+                        <td>{{ docenteMateria.dia }}</td>
+                        <td>{{ docenteMateria.carrera.nombre }}</td>
+                        <td>{{ docenteMateria.aula.numero }}</td>
+                        <td>{{ docenteMateria.modulo.numero }}</td>
+                        <td>{{ docenteMateria.facultad.nombre }}</td>
+                        <td>
+                            <button class="update-button" (click)="navigateToUpdate(docenteMateria.id)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="delete-button" (click)="deleteDocenteMateria(docenteMateria.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>

@@ -32,16 +32,17 @@ export class LoginComponent {
 
     try {
       const response = await this.usersService.login(this.email, this.password);
-      if(response.statusCode == 200){
-        localStorage.setItem('token', response.token)
-        localStorage.setItem('role', response.role)
-        this.router.navigate(['/profile'])
-      }else{
-        this.showError(response.message)
+      if (response.statusCode == 200) {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('role', response.role);
+        window.location.href = '/profile'; // Redirige a la URL de perfil
+      } else {
+        this.showError(response.message);
       }
     } catch (error: any) {
-      this.showError(error.message)
+      this.showError(error.message);
     }
+    
 
   }
 

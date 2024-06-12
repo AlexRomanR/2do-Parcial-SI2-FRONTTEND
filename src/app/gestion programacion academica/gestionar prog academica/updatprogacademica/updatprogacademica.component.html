@@ -1,0 +1,96 @@
+<div class="background-container">
+    <img src="assets/images/progacademica.png" class="background-image" alt="Fondo">
+    <div class="container">
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+            Actualizar Programación Academica
+        </div>
+        <form (ngSubmit)="updateDocenteMateria()">
+            <div class="form-group">
+                <label>Docente:</label>
+                <select name="docente_id" [(ngModel)]="docenteMateriaData.docente_id" required>
+                    <option value="" disabled>Seleccione un docente</option>
+                    <option *ngFor="let docente of docentes" [value]="docente.id">{{ docente.name }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Materia:</label>
+                <select name="materia_id" [(ngModel)]="docenteMateriaData.materia_id" required>
+                    <option value="" disabled>Seleccione una materia</option>
+                    <option *ngFor="let materia of materias" [value]="materia.id">{{ materia.nombre }}</option>
+                </select>
+            </div>
+            
+
+            <div class="form-group">
+                <label>Horario Inicio:</label>
+                <input type="time" name="horario_inicio" [(ngModel)]="docenteMateriaData.horario_inicio" required />
+            </div>
+
+            <div class="form-group">
+                <label>Horario Fin:</label>
+                <input type="time" name="horario_fin" [(ngModel)]="docenteMateriaData.horario_fin" required />
+            </div>
+
+            <div class="form-group">
+                <label>Grupo:</label>
+                <input type="text" name="grupo" [(ngModel)]="docenteMateriaData.grupo" required />
+            </div>
+
+            <div class="form-group">
+                <label>Día:</label>
+                <select name="dia" [(ngModel)]="docenteMateriaData.dia" required>
+                    <option value="" disabled>Seleccione un día</option>
+                    <option value="Lunes" [selected]="docenteMateriaData.dia === 'Lunes'">Lunes</option>
+                    <option value="Martes" [selected]="docenteMateriaData.dia === 'Martes'">Martes</option>
+                    <option value="Miércoles" [selected]="docenteMateriaData.dia === 'Miercoles'">Miercoles</option>
+                    <option value="Jueves" [selected]="docenteMateriaData.dia === 'Jueves'">Jueves</option>
+                    <option value="Viernes" [selected]="docenteMateriaData.dia === 'Viernes'">Viernes</option>
+                    <option value="Sábado" [selected]="docenteMateriaData.dia === 'Sabado'">Sabado</option>
+                    <option value="Domingo" [selected]="docenteMateriaData.dia === 'Domingo'">Domingo</option>
+                </select>
+            </div>
+
+
+            
+            
+            
+            
+
+            <div class="form-group">
+                <label>Carrera:</label>
+                <select name="carrera_id" [(ngModel)]="docenteMateriaData.carrera_id" required>
+                    <option value="" disabled>Seleccione una carrera</option>
+                    <option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Aula:</label>
+                <select name="aula_id" [(ngModel)]="docenteMateriaData.aula_id" required>
+                    <option value="" disabled>Seleccione un aula</option>
+                    <option *ngFor="let aula of aulas" [value]="aula.id">{{ aula.numero }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="modulo">Modulo:</label>
+                <select id="modulo" name="modulo_id" [(ngModel)]="docenteMateriaData.modulo_id" required>
+                  <option value="" disabled>Seleccione una modulo</option>
+                  <option *ngFor="let modulo of modulos" [value]="modulo.id">{{ modulo.numero }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Facultad:</label>
+                <select name="facultad_id" [(ngModel)]="docenteMateriaData.facultad_id" required>
+                    <option value="" disabled>Seleccione una facultad</option>
+                    <option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</option>
+                </select>
+            </div>
+
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+</div>
