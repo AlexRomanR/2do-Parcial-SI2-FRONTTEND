@@ -27,6 +27,10 @@ import { RegistermateriasComponent } from './gestion academica/materias/register
 import { CarrerasComponent } from './gestion academica/carreras/carreras/carreras.component';
 import { UpdatecarrerasComponent } from './gestion academica/carreras/updatecarreras/updatecarreras.component';
 import { RegistercarrerasComponent } from './gestion academica/carreras/registercarreras/registercarreras.component';
+import { ProgacademicaComponent } from './gestion programacion academica/gestionar prog academica/progacademica/progacademica.component';
+import { UpdatprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/updatprogacademica/updatprogacademica.component';
+import { RegisterprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/registerprogacademica/registerprogacademica.component';
+import { ProgacademicaUserComponent } from './gestion programacion academica/gestionar prog academica/progacademica-user/progacademica-user.component';
 
 
 
@@ -72,6 +76,12 @@ export const routes: Routes = [
     {path: 'roles', component: RolesComponent, canActivate:[adminGuard]},
     {path: 'update-rol/:id', component: UpdaterolesComponent, canActivate: [adminGuard]},
     {path: 'register-rol', component: RegisterrolesComponent, canActivate: [adminGuard]},
+
+    //PROG ACADEMICA
+    {path: 'progacademica', component: ProgacademicaComponent, canActivate:[adminGuard]},
+    {path: 'progacademicaUser', component: ProgacademicaUserComponent, canActivate: [usersGuard]},
+    {path: 'update-progAcademica/:id', component: UpdatprogacademicaComponent, canActivate: [adminGuard]},
+    {path: 'register-progAcademica', component: RegisterprogacademicaComponent, canActivate: [adminGuard]},
 
 
 

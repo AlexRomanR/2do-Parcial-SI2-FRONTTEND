@@ -38,14 +38,14 @@ Change class "fixed" to "sticky" in "navbar" (l. 33) so the navbar doesn't hide 
             <ul class="mb-8 text-sm font-medium">
 
                 <li *ngIf="isAdmin">
-                    <a routerLink="/roles" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                    <a href="/roles" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Roles y Permisos</span>
                     </a>
                 </li>
 
 
                 <li *ngIf="isAdmin">
-                    <a routerLink="/users" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                    <a href="/users" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Usuarios</span>
                     </a>
                 </li>
@@ -66,18 +66,18 @@ Change class "fixed" to "sticky" in "navbar" (l. 33) so the navbar doesn't hide 
             <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Gestión Academica</h3>
             <ul class="mb-8 text-sm font-medium">
                 <li *ngIf="isAdmin">
-                    <a routerLink="/facultades" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                    <a href="/facultades" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Facultades</span>
                     </a>
                 </li>
                 <li *ngIf="isAdmin">
-                    <a routerLink="/modulos" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                    <a href="/modulos" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Modulos</span>
                     </a>
                 </li>
 
                 <li *ngIf="isAdmin">
-                    <a routerLink="/aulas" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                    <a href="/aulas" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
                         <span class="select-none">Gestionar Aulas</span>
                     </a>
                 </li>
@@ -98,23 +98,37 @@ Change class "fixed" to "sticky" in "navbar" (l. 33) so the navbar doesn't hide 
             </ul>
         </div>
     
-        <!-- Others -->
+        
+        <div class="px-4 pb-6 border-b border-gray-600">
+            <br>
+            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Programación Academica</h3>
+            <ul class="mb-8 text-sm font-medium">
+                <li *ngIf="isAdmin">
+                    <a href="/progacademica" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Programación Academica</span>
+                    </a>
+                </li>
+
+                <li *ngIf="isUser">
+                    <a href="/progacademicaUser" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                        <span class="select-none">Gestionar Programación Academica filtraod</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+
         <div class="px-4 pb-6">
             <br>
-            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Others</h3>
+            <h3 class="mb-2 font-size: 1.25rem; uppercase text-gray-300">Logout</h3>
             <ul class="mb-8 text-sm font-medium">
-                <li>
-                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                        href="#ex1">
-                        <span class="select-none">Example 1</span>
+                <li *ngIf="isAuthenticated">
+                    <a href="" (click)="logout()" class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600">
+                      <span class="select-none">Cerrar Sesión</span>
                     </a>
-                </li>
-                <li>
-                    <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
-                        href="#ex2">
-                        <span class="select-none">Example 2</span>
-                    </a>
-                </li>
+                  </li>
+
             </ul>
         </div>
     </nav>
