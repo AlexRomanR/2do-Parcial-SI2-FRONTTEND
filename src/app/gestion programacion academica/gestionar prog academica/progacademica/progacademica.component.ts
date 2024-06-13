@@ -1,20 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../users.service';
-import { RouterLink, Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
+import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-progacademica',
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './progacademica.component.html',
-  styleUrl: './progacademica.component.css'
+  styleUrls: ['./progacademica.component.css']
 })
-export class ProgacademicaComponent {
+export class ProgacademicaComponent implements OnInit {
   docenteMaterias: any[] = [];
   errorMessage: string = '';
-  isAuthenticated:boolean = false;
-  isAdmin:boolean = false;
-  isUser:boolean = false;
+  isAuthenticated: boolean = false;
+  isAdmin: boolean = false;
+  isUser: boolean = false;
 
   constructor(
     private readonly userService: UsersService,
@@ -40,7 +44,6 @@ export class ProgacademicaComponent {
     } catch (error: any) {
       this.showError(error.message);
     }
-    console.log(this.docenteMaterias);
   }
 
   async deleteDocenteMateria(docenteMateriaID: string) {
@@ -67,4 +70,55 @@ export class ProgacademicaComponent {
     }, 3000);
   }
 
+  exportToPDF() {
+    const doc = new jsPDF();
+    const col: string[] = ["ID", "Docente", "Materia", "Horario Inicio", "Horario Fin", "Grupo", "Día", "Carrera", "Aula", "Modulo", "Facultad"];
+    const rows: (string | number)[][] = [];
+  
+    this.docenteMaterias.forEach(element => {
+      const temp: (string | number)[] = [
+        element.id,
+        element.docente.name,
+        element.materia.nombre,
+        element.horario_inicio,
+        element.horario_fin,
+        element.grupo,
+        element.dia,
+        element.carrera.nombre,
+        element.aula.numero,
+        element.modulo.numero,
+        element.facultad.nombre
+      ];
+      rows.push(temp);
+    });
+  
+    (doc as any).autoTable({
+      head: [col],
+      body: rows
+    });
+  
+    doc.save('Programacion_Academica.pdf');
+  }
+  
+
+  exportToExcel() {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.docenteMaterias.map(item => ({
+      ID: item.id,
+      Docente: item.docente.name,
+      Materia: item.materia.nombre,
+      "Horario Inicio": item.horario_inicio,
+      "Horario Fin": item.horario_fin,
+      Grupo: item.grupo,
+      Día: item.dia,
+      Carrera: item.carrera.nombre,
+      Aula: item.aula.numero,
+      Modulo: item.modulo.numero,
+      Facultad: item.facultad.nombre
+    })));
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Programacion_Academica');
+
+    XLSX.writeFile(wb, 'Programacion_Academica.xlsx');
+  }
 }

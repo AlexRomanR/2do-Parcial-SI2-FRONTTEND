@@ -11,6 +11,9 @@
         <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
         <br>
         <button routerLink="/register-progAcademica" class="reg-button">Añadir Programación Academica</button>
+        <br>
+        <button (click)="exportToPDF()" class="pdf-button">PDF</button>
+        <button (click)="exportToExcel()" class="excel-button">Excel</button>
         
         <div class="table-container">
             <table>

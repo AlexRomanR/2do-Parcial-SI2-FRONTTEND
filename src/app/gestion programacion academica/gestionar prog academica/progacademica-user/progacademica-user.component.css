@@ -115,6 +115,7 @@ table tr:hover {
     transform: scale(1.05);
 }
 
+
 .update-button:hover {
     background-color: #00c50a;
     transform: scale(1.05);
@@ -133,6 +134,33 @@ table tr:hover {
     color: #f8f9fa;
     margin-top: auto;
 }
+.pdf-button{
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #bb2b11;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .excel-button {
+      margin: 10px;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  .pdf-button:hover {
+    background-color: #ac2402;
+  }
+  
+  .excel-button:hover {
+      background-color: #45a049;
+  }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
