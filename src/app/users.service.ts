@@ -310,7 +310,7 @@ export class UsersService {
     );
   }
   createLicencia(licenciaData: any, token: string): Observable<any> {
-    const url = `${this.BASE_URL}/admin/create-licencia`; // Asegúrate que coincida con el endpoint del controlador Spring
+    const url = `${this.BASE_URL}/adminuser/create-licencia`; // Asegúrate que coincida con el endpoint del controlador Spring
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
