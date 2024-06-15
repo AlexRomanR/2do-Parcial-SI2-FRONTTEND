@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -281,6 +282,69 @@ export class UsersService {
     } catch (error) {
       throw error;
     }
+  }
+
+
+  //LICENCIAS  
+  getAllLicencias(token: string): Observable<any> {
+    const url = `${this.BASE_URL}/adminuser`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, { headers }).pipe(
+      catchError(error => {
+        throw error;
+      })
+    );
+  }
+
+  getLicenciaById(id: number, token: string): Observable<any> {
+    const url = `${this.BASE_URL}/adminuser/${id}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(url, { headers }).pipe(
+      catchError(error => {
+        throw error;
+      })
+    );
+  }
+  createLicencia(licenciaData: any, token: string): Observable<any> {
+    const url = `${this.BASE_URL}/admin/create-licencia`; // Asegúrate que coincida con el endpoint del controlador Spring
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<any>(url, licenciaData, { headers }).pipe(
+      catchError(error => {
+        console.error('Error en la llamada HTTP:', error); // Registra errores en la consola
+        throw error;
+      })
+    );
+  }
+
+  updateLicencia(id: number, licenciaData: any, token: string): Observable<any> {
+    const url = `${this.BASE_URL}/adminuser/${id}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put<any>(url, licenciaData, { headers }).pipe(
+      catchError(error => {
+        throw error;
+      })
+    );
+  }
+
+  deleteLicencia(id: number, token: string): Observable<any> {
+    const url = `${this.BASE_URL}/adminuser/${id}`;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<any>(url, { headers }).pipe(
+      catchError(error => {
+        throw error;
+      })
+    );
   }
   
   //FACULTADES

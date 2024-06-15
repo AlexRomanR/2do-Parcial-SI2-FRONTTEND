@@ -46,6 +46,7 @@ export class ProgacademicaComponent implements OnInit {
     }
   }
 
+
   async deleteDocenteMateria(docenteMateriaID: string) {
     const confirmDelete = confirm('¿Estás seguro que deseas eliminar este registro?');
     if (confirmDelete) {
@@ -121,4 +122,10 @@ export class ProgacademicaComponent implements OnInit {
 
     XLSX.writeFile(wb, 'Programacion_Academica.xlsx');
   }
+
+  
+  navigateToCreateLicense(docenteMateria: any) {
+    this.router.navigate(['/crear-licencia', docenteMateria.id]);
+  }
+
 }

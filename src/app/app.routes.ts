@@ -31,6 +31,7 @@ import { ProgacademicaComponent } from './gestion programacion academica/gestion
 import { UpdatprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/updatprogacademica/updatprogacademica.component';
 import { RegisterprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/registerprogacademica/registerprogacademica.component';
 import { ProgacademicaUserComponent } from './gestion programacion academica/gestionar prog academica/progacademica-user/progacademica-user.component';
+import { CrearLicenciaComponent } from './crear-licencia/crear-licencia.component';
 
 
 
@@ -47,6 +48,9 @@ export const routes: Routes = [
     {path: 'materias', component: MateriasComponent, canActivate:[adminGuard]},
     {path: 'update-materia/:id', component: UpdateMateriasComponent, canActivate: [adminGuard]},
     {path: 'register-materia', component: RegistermateriasComponent, canActivate: [adminGuard]},
+
+    //Licencias
+    { path: 'crear-licencia/:id', component: CrearLicenciaComponent },
 
     //carreras
     {path: 'carreras', component: CarrerasComponent, canActivate:[adminGuard]},

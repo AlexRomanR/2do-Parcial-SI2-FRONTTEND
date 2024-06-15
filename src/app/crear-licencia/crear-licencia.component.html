@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Crear Licencia</h2>
+    <form (ngSubmit)="handleSubmit()">
+      <div class="form-group">
+        <label for="motivo">Motivo</label>
+        <textarea id="motivo" class="form-control" [(ngModel)]="motivo" name="motivo" required></textarea>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+      <button type="submit" class="btn btn-primary">Crear Licencia</button>
+    </form>
+  </div>
+  

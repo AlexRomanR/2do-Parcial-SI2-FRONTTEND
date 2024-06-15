@@ -148,4 +148,9 @@ export class ProgacademicaUserComponent {
     XLSX.writeFile(wb, 'Programacion_Academica.xlsx');
   }
 
+
+  navigateToCreateLicense(docenteMateria: any) {
+    this.router.navigate(['/crear-licencia', docenteMateria.id]);
+  }
+
 }
