@@ -134,6 +134,7 @@ table tr:hover {
     color: #f8f9fa;
     margin-top: auto;
 }
+
 .pdf-button{
     margin: 10px;
     padding: 10px 15px;
@@ -161,6 +162,47 @@ table tr:hover {
   .excel-button:hover {
       background-color: #45a049;
   }
+
+  .mark-attendance-button {
+    padding: 9px;
+    margin: 0px 2px;
+    font-size: 14px;    
+    color: #fff;
+    background-color: #2e7fca; /* Color verde para indicar marcar asistencia */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mark-attendance-button:hover {
+    background-color: #0038d3; /* Color verde más oscuro en hover */
+    transform: scale(1.05);
+}
+
+.solicitar-licencia-button {
+    padding: 9px;
+    margin: 0px 2px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #26be18; /* Color azul para indicar solicitar licencia */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Para quitar subrayado que viene por defecto en un anchor */
+    display: inline-block; /* Asegura que se comporta como bloque pero mantiene tamaño ajustado */
+    text-align: center; /* Centra el texto */
+    line-height: 1; /* Ajusta el espaciado vertical */
+}
+
+.solicitar-licencia-button:hover {
+    background-color: #028b19; /* Color azul más oscuro en hover */
+    transform: scale(1.05);
+}
+
+
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

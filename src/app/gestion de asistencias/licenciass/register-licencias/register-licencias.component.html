@@ -1,0 +1,23 @@
+<div class="background-container">
+    <img src="assets/images/licencia.png" class="background-image" alt="Fondo">
+    <div class="container">
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+        Añadir Licencia
+      </div>
+      <form (submit)="handleSubmit()">
+        <div class="form-group">
+          <label for="motivo">Motivo:</label>
+          <input type="text" id="motivo" name="motivo" [(ngModel)]="formData.motivo" required />
+        </div>
+        <!-- Campo oculto para fecha -->
+        <input type="hidden" id="fecha" name="fecha" [(ngModel)]="formData.fecha">
+        <!-- Campo oculto para estado -->
+        <input type="hidden" id="estado" name="estado" [(ngModel)]="formData.estado">
+        <!-- Campo oculto para docente_materia_id -->
+        <input type="hidden" id="docente_materia_id" name="docente_materia_id" [(ngModel)]="formData.docente_materia_id">
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+  

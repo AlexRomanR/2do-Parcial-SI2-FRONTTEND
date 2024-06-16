@@ -1,0 +1,63 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Licencias</strong></h2>
+    
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    
+
+
+        <br>
+        <button (click)="exportToPDF()" class="pdf-button">Exportar a PDF</button>
+        <button (click)="exportToExcel()" class="excel-button">Exportar a Excel</button>
+        
+        <div class="table-container ">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>
+                        <th>Fecha Solicitada</th>
+                        <th>Programación Academica ID</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let licencia of licencias" key="licencia.id">
+                        <td>{{ licencia.id }}</td>
+                        <td>{{ licencia.motivo }}</td>
+                        <td>{{ licencia.estado }}</td>
+                        <td>{{ licencia.fecha }}</td>
+                        <td>{{ licencia.docenteMaterias.id}}</td>
+                        <td>
+                            <!-- <button class="update-button" (click)="navigateToUpdate(licencia.id)">
+                                <i class="fas fa-edit"></i>
+                            </button> -->
+
+
+                            <button class="accept-button" (click)="acceptLicencia(licencia.id)">
+                                <i class="fas fa-check-circle"></i>
+                            </button>
+
+                            <button class="reject-button" (click)="RechazarLicencia(licencia.id)">
+                                <i class="fas fa-times-circle"></i> <!-- Ícono de "X" -->
+                            </button>
+
+                            <button class="delete-button" (click)="deleteLicencia(licencia.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>

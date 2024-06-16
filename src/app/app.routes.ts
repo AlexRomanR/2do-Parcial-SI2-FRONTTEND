@@ -31,6 +31,12 @@ import { ProgacademicaComponent } from './gestion programacion academica/gestion
 import { UpdatprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/updatprogacademica/updatprogacademica.component';
 import { RegisterprogacademicaComponent } from './gestion programacion academica/gestionar prog academica/registerprogacademica/registerprogacademica.component';
 import { ProgacademicaUserComponent } from './gestion programacion academica/gestionar prog academica/progacademica-user/progacademica-user.component';
+import { AsistenciasComponent } from './gestion de asistencias/asistenciass/asistencias/asistencias.component';
+import { RegisterAsistenciasComponent } from './gestion de asistencias/asistenciass/register-asistencias/register-asistencias.component';
+import { LicenciasComponent } from './gestion de asistencias/licenciass/licencias/licencias.component';
+import { LicenciasUserComponent } from './gestion de asistencias/licenciass/licencias-user/licencias-user.component';
+import { UpdatelicenciasComponent } from './gestion de asistencias/licenciass/updatelicenciasUser/updatelicencias.component';
+import { RegisterLicenciasComponent } from './gestion de asistencias/licenciass/register-licencias/register-licencias.component';
 
 
 
@@ -82,6 +88,19 @@ export const routes: Routes = [
     {path: 'progacademicaUser', component: ProgacademicaUserComponent, canActivate: [usersGuard]},
     {path: 'update-progAcademica/:id', component: UpdatprogacademicaComponent, canActivate: [adminGuard]},
     {path: 'register-progAcademica', component: RegisterprogacademicaComponent, canActivate: [adminGuard]},
+
+
+
+    //ASISTENCIAS
+    {path: 'asistencias', component: AsistenciasComponent, canActivate:[usersGuard]},
+    {path: 'register-asistencia', component: RegisterAsistenciasComponent, canActivate: [adminGuard]},
+
+
+    //LICENCIAS
+    {path: 'licencias', component: LicenciasComponent, canActivate:[adminGuard]},
+    {path: 'licenciasUser', component: LicenciasUserComponent, canActivate: [usersGuard]},
+    {path: 'update-licencia/:id', component: UpdatelicenciasComponent, canActivate: [usersGuard]},
+    {path: 'register-licencia', component: RegisterLicenciasComponent, canActivate: [usersGuard]},
 
 
 

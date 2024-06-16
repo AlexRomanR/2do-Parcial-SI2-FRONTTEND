@@ -1,7 +1,7 @@
 import {
   init_jspdf_es_min,
   jspdf_es_min_exports
-} from "./chunk-FO5FLLNV.js";
+} from "./chunk-UWFRX7RL.js";
 import "./chunk-MAN4NYY2.js";
 import {
   __commonJS,
