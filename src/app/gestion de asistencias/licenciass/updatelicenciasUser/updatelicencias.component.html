@@ -1,0 +1,21 @@
+<div class="background-container">
+    <img src="assets/images/licencia.png" class="background-image" alt="Fondo">
+    <div class="container">
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <div class="text-center font-sans text-black font-bold text-3xl antialiased pb-10 mt-10">
+        Actualizar Licencia
+      </div>
+      <form (ngSubmit)="updateLicencia()">
+        <div class="form-group">
+          <label for="motivo">Motivo:</label>
+          <input type="text" id="motivo" name="motivo" [(ngModel)]="licenciaData.motivo">
+        </div>
+        <!-- Campos ocultos que no se editan pero se envían -->
+        <input type="hidden" id="estado" name="estado" [(ngModel)]="licenciaData.estado">
+        <input type="hidden" id="fecha" name="fecha" [(ngModel)]="licenciaData.fecha">
+
+        <button type="submit">Actualizar</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,68 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-###TU-INTEGRIDAD###" crossorigin="anonymous" />
+</head>
+<body>
+    <br>
+    <br>
+    
+    <div class="container">
+        <h2><strong>Gestionar Asistencias</strong></h2>
+      
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <br>
+        <button (click)="exportToPDF()" class="pdf-button">Exportar a PDF</button>
+<button (click)="exportToExcel()" class="excel-button">Exportar a Excel</button>
+
+      
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Estado</th>
+                <th>Hora Marcada</th>
+                <th>Fecha</th>
+                <th>Programación Academica ID</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let asistencia of asistencias; let i = index">
+                <td>{{ asistencia.id }}</td>
+                <td>{{ asistencia.estado }}</td>
+                <td>{{ asistencia.horaMarcada }}</td>
+                <td>{{ asistencia.fecha }}</td>
+                <td>{{ asistencia.docenteMaterias.id }}</td>
+                <td>
+                  <button class="delete-button" (click)="deleteAsistencia(asistencia.id)">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <div class="asistencias-contador">
+          <h3 class="titulo-resumen">RESUMEN ASISTENCIAS</h3>
+          <div class="resumen-item" *ngFor="let contador of asistenciasContador">
+            <div class="resumen-info">
+              <p *ngIf="contador.materia" class="materia-nombre">
+                {{ contador.materia.nombre }} - {{ contador.grupo }} 
+              </p>
+              <div class="materia-asistencias-container">
+                <p class="materia-asistencias">{{ contador.marcadas }} / {{ contador.esperadas }} asistencias</p>
+                <span *ngIf="contador.licenciasAceptadas" class="licencias-aceptadas">Licencias aceptadas: {{ contador.licenciasAceptadas }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+      
+
+      
+      </div>
+      
+</body>

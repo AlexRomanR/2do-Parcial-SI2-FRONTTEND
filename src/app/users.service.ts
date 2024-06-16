@@ -661,4 +661,132 @@ export class UsersService {
 
 
 
+    //ASISTENCIAS
+
+
+  
+    async getAsistenciasByDocenteID(docenteID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-asistencias-by-docente/${docenteID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async registerAsistencia(AsistenciaData:any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/create-asistencia`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.post<any>(url, AsistenciaData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async deleteAsistencia(asistenciaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/delete-asistencia/${asistenciaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.delete<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    
+    }
+
+    //Licencia
+
+    async getAlllicencias(token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-all-licencias`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+
+    async getAllLicenciasByDocente(docenteID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-licencias-by-docente/${docenteID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async getLicenciaById(licenciaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/get-licencia/${licenciaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.get<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async registerLicencia(licenciaData:any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/create-licencia`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.post<any>(url, licenciaData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async deleteLicencia(licenciaID: string, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/delete-licencia/${licenciaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.delete<any>(url, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }
+  
+    async updateLicencia(licenciaID: string, licenciaData: any, token:string):Promise<any>{
+      const url = `${this.BASE_URL}/adminuser/update-licencia/${licenciaID}`;
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+      try{
+        const response =  this.http.put<any>(url, licenciaData, {headers}).toPromise()
+        return response;
+      }catch(error){
+        throw error;
+      }
+    }  
+  
+   
+
+
+
 }

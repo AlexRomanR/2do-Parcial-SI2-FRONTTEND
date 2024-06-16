@@ -10,8 +10,7 @@
     
         <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
         <br>
-        <button routerLink="/register-progAcademica" class="reg-button">Añadir Programación Academica</button>
-        <br>
+
         <button (click)="exportToPDF()" class="pdf-button">PDF</button>
         <button (click)="exportToExcel()" class="excel-button">Excel</button>
         
@@ -47,12 +46,35 @@
                         <td>{{ docenteMateria.modulo.numero }}</td>
                         <td>{{ docenteMateria.facultad.nombre }}</td>
                         <td>
-                            <button class="update-button" (click)="navigateToUpdate(docenteMateria.id)">
+                            <!-- <button class="update-button" (click)="navigateToUpdate(docenteMateria.id)">
                                 <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="delete-button" (click)="deleteDocenteMateria(docenteMateria.id)">
+                            </button> -->
+
+                         
+                                <button *ngIf="isWithinTimeRange(docenteMateria.horario_inicio, docenteMateria.horario_fin, docenteMateria.dia)"
+                                  class="mark-attendance-button"
+                                  (click)="marcarAsistencia(docenteMateria.id, docenteMateria.horario_inicio, docenteMateria.modulo.ubicacion)">
+                                  <i class="fas fa-check-circle"></i>
+                                </button>
+
+
+                                <button *ngIf="isWithinTimeRange(docenteMateria.horario_inicio, docenteMateria.horario_fin, docenteMateria.dia)"
+                                [routerLink]="['/register-licencia']" 
+                                [queryParams]="{ docenteMateriaId: docenteMateria.id }" 
+                                class="solicitar-licencia-button">
+                                <i class="fas fa-book-open"></i> <!-- Ícono de libro abierto verde -->
+                        </button>
+                        
+
+                                
+                                
+
+                      
+                              
+                            
+                            <!-- <button class="delete-button" (click)="deleteDocenteMateria(docenteMateria.id)">
                                 <i class="fas fa-trash-alt"></i>
-                            </button>
+                            </button> -->
                         </td>
                     </tr>
                 </tbody>
