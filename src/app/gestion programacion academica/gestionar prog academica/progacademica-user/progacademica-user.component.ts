@@ -75,11 +75,7 @@ export class ProgacademicaUserComponent {
   loadUserLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        position => this.userLocation = position,
-        error => {
-          console.error('Error getting user location', error);
-          // Establecer la ubicación por defecto cuando hay un error
-          this.userLocation = {
+        position => this.userLocation =  {
             coords: {
               latitude: -17.776296,
               longitude: -63.195083,
@@ -90,9 +86,11 @@ export class ProgacademicaUserComponent {
               speed: null
             },
             timestamp: Date.now()
-          };
-        }
+          }
+ 
       );
+
+      
     } else {
       console.error('Geolocation is not supported by this browser.');
       // Establecer la ubicación por defecto cuando no se soporta la geolocalización
