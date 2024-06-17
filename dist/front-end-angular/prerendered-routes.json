@@ -1,0 +1,30 @@
+{
+  "routes": [
+    "/asistencias",
+    "/aulas",
+    "/carreras",
+    "/docentes",
+    "/facultades",
+    "/home",
+    "/licencias",
+    "/licenciasUser",
+    "/login",
+    "/materias",
+    "/modulos",
+    "/profile",
+    "/progacademica",
+    "/progacademicaUser",
+    "/register",
+    "/register-asistencia",
+    "/register-aula",
+    "/register-carreras",
+    "/register-facu",
+    "/register-licencia",
+    "/register-materia",
+    "/register-modu",
+    "/register-progAcademica",
+    "/register-rol",
+    "/roles",
+    "/users"
+  ]
+}

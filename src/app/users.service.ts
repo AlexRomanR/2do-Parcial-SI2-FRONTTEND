@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UsersService {
 
-  private BASE_URL = "http://localhost:6060";
+  private BASE_URL = "https://magnificent-encouragement-production.up.railway.app";
 
   constructor(private http: HttpClient) { }
 
