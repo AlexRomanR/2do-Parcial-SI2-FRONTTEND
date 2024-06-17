@@ -98,7 +98,7 @@ export const routes: Routes = [
 
     //LICENCIAS
     {path: 'licencias', component: LicenciasComponent, canActivate:[adminGuard]},
-    {path: 'licenciasUser', component: LicenciasUserComponent, canActivate: [usersGuard]},
+    {path: 'licenciasuser', component: LicenciasUserComponent, canActivate: [usersGuard]},
     {path: 'update-licencia/:id', component: UpdatelicenciasComponent, canActivate: [usersGuard]},
     {path: 'register-licencia', component: RegisterLicenciasComponent, canActivate: [usersGuard]},
 
