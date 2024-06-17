@@ -85,7 +85,7 @@ export const routes: Routes = [
 
     //PROG ACADEMICA
     {path: 'progacademica', component: ProgacademicaComponent, canActivate:[adminGuard]},
-    {path: 'progacademicaUser', component: ProgacademicaUserComponent, canActivate: [usersGuard]},
+    {path: 'progacademicauser', component: ProgacademicaUserComponent, canActivate: [usersGuard]},
     {path: 'update-progAcademica/:id', component: UpdatprogacademicaComponent, canActivate: [adminGuard]},
     {path: 'register-progAcademica', component: RegisterprogacademicaComponent, canActivate: [adminGuard]},
 
